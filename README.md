@@ -7,3 +7,4 @@ Projeto desenvolvido durante a Imersão Java Alura 2023, lista o ranking dos fil
 
 __Resultado:__
 
+![Resultado] (Screenshot_2.png)
