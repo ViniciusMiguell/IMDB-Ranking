@@ -11,7 +11,6 @@ public class App {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		// Fazer uma conexão HTTP e buscar os Top 250 Filmes
 		String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularMovies.json";
 		var client = HttpClient.newHttpClient();
 		var endereco = URI.create(url);
@@ -19,11 +18,9 @@ public class App {
 		var response = client.send(request, BodyHandlers.ofString());
 		String body = response.body();
 		
-		// Extrair apenas os dados que interassam (titulo, poster, classificação)
 		var parser = new JsonParser();
 		List<Map<String, String>>listaDeFilmes = parser.parse(body);
 		
-		// Exibir e manipular os dados
 		for (Map<String, String> filme : listaDeFilmes) {
 			System.out.println("\033[32;1mTitulo: \u001b[m"+filme.get("title"));
 			double classificação = Double.parseDouble(filme.get("imDbRating"));
@@ -39,5 +36,4 @@ public class App {
 			System.out.println("\n");
 		}
 	}
-
 }
